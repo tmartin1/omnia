@@ -1,61 +1,59 @@
-"use strict";
+'use strict';
 
-describe('todo.e2e', function() {
-    var SUBMIT_TODO_BUTTON = '#submit-todo-button';
-    var TODO_MODEL = 'todosCtrl.todo.todoMessage';
-    var CLOSE_TODO = '.todo-done';
+describe('todo.e2e', () => {
+    const SUBMIT_TODO_BUTTON = '#submit-todo-button';
+    const TODO_MODEL = 'todosCtrl.todo.todoMessage';
+    const CLOSE_TODO = '.todo-done';
 
-    beforeEach(function() {
+    beforeEach(() => {
         browser.get('/');
     })
 
-    describe('creation', function() {
-        it('should have the submit button disabled', function() {
+    describe('creation', () => {
+        it('should have the submit button disabled', () => {
             expect($(SUBMIT_TODO_BUTTON).isEnabled()).toBeFalsy();
         })
 
-        it('should have the right title', function() {
+        it('should have the right title', () => {
             expect(browser.getTitle()).toEqual('Stuff Todo!');
         })
     })
 
-    describe('addition', function() {
-        it('should add a new todo - enter', function() {
-            element(by.model(TODO_MODEL)).sendKeys('This was added by Protractor :D (at '+String(new Date())+')');
+    describe('addition', () => {
+        it('should add a new todo - enter', () => {
+            element(by.model(TODO_MODEL)).sendKeys(
+                `This was added by Protractor :D (at ${String(new Date())})`
+            );
 
             element(by.model(TODO_MODEL)).sendKeys(protractor.Key.ENTER);
 
-            var _count = element.all(by.repeater('t in todosCtrl.todos')).count();
-
+            const _count = element.all(by.repeater('t in todosCtrl.todos')).count();
             expect(_count).toBeGreaterThan(0);
         })
 
-        it('should add a new todo - click', function() {
-          element(by.model(TODO_MODEL)).sendKeys('Added by Protractor :D (at '+String(new Date())+')');
+        it('should add a new todo - click', () => {
+            element(by.model(TODO_MODEL)).sendKeys(
+                `Added by Protractor :D (at ${String(new Date())})`
+            );
 
-          $(SUBMIT_TODO_BUTTON)
-            .click()
-            .then(function() {
+            $(SUBMIT_TODO_BUTTON).click().then(() => {
                 element.all(by.repeater('t in todosCtrl.todos'))
-                  .count()
-                  .then(function(count) {
-                      expect(count).toBeGreaterThan(0);
-                  });
+                .count()
+                .then((count) => {
+                    expect(count).toBeGreaterThan(0);
+                });
             });
         })
     })
 
-    describe('deletion', function() {
-        it('should delete a todo', function() {
-            var _firstCount = element.all(by.repeater('t in todosCtrl.todos')).count();
+    describe('deletion', () => {
+        it('should delete a todo', () => {
+            const _firstCount = element.all(by.repeater('t in todosCtrl.todos')).count();
 
-            $$(CLOSE_TODO)
-              .get(0)
-              .click(function() {
-                  var _secondCount = element.all(by.repeater('t in todosCtrl.todos')).count();
-
-                  expect(_secondCount).toBeLessThan(_firstCount);
-              });
+            $$(CLOSE_TODO).get(0).click(() => {
+                var _secondCount = element.all(by.repeater('t in todosCtrl.todos')).count();
+                expect(_secondCount).toBeLessThan(_firstCount);
+            });
         })
     })
 })

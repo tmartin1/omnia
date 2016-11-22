@@ -1,35 +1,35 @@
 package dbconfig
 
 import (
-	"os"
-	"testing"
+    "os"
+    "testing"
 
-	"github.com/stretchr/testify/assert"
+    "github.com/stretchr/testify/assert"
 )
 
 var db DB = DB{}
 
 func cleanEnv() {
-	os.Setenv("MONGOHQ_URL", "")
+    os.Setenv("MONGOHQ_URL", "127.0.0.1:49794")
 }
 
 func TestGetDbUrl(t *testing.T) {
 
-	assert.Equal(t, "localhost", DBUrl())
+    assert.Equal(t, "localhost", DBUrl())
 
-	os.Setenv("MONGOHQ_URL", "abc")
+    os.Setenv("MONGOHQ_URL", "abc")
 
-	assert.Equal(t, "abc", DBUrl())
+    assert.Equal(t, "abc", DBUrl())
 
-	cleanEnv()
+    cleanEnv()
 }
 
 func TestDBName(t *testing.T) {
-	assert.Equal(t, "omnia", db.Name())
+    assert.Equal(t, "omnia", db.Name())
 }
 
 func BenchmarkDoDial(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		db.DoDial()
-	}
+    for i := 0; i < b.N; i++ {
+        db.DoDial()
+    }
 }
