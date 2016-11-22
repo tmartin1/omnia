@@ -1,0 +1,11 @@
+{
+  "generator-ng-fullstack": {
+    "username": "tmartin1",
+    "appName": "omnia",
+    "stack": "fullstack",
+    "server": "go",
+    "client": "ng2",
+    "secure": true,
+    "differentStaticServer": false
+  }
+}
