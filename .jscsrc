@@ -1,0 +1,18 @@
+{
+    "maximumLineLength": 100,
+    "disallowSpacesInFunctionDeclaration": null,
+    "disallowSpacesInNamedFunctionExpression": null,
+    "disallowSpacesInsideObjectBrackets": null,
+    "disallowMultipleLineBreaks": true,
+    "excludeFiles": [
+        "node_modules/**"
+    ],
+    "requireSpacesInFunctionDeclaration": {
+        "beforeOpeningRoundBrace": true,
+        "beforeOpeningCurlyBrace": true
+    },
+    "requireSpacesInFunctionExpression": {
+        "beforeOpeningRoundBrace": true,
+        "beforeOpeningCurlyBrace": true
+    }
+}
