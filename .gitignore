@@ -7,8 +7,10 @@ bower_components
 typings
 
 client/**/*.js
+!client/**/config.js
 client/**/*.js.map
 server/**/*.js
+!server/**/config.js
 server/**/*.js.map
 
 dist

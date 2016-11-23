@@ -33,6 +33,7 @@
         "moment": false,
         "setTimeout": false,
         "spyOn": false,
+        "System": false,
         "util": false,
         "window": false
     }
