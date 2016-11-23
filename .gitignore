@@ -1,8 +1,13 @@
 .idea
+
 coverage
 node_modules
 unit_coverage
 bower_components
 typings
+
 dist
 client/dist
+server/dist
+
+npm-debug.log
