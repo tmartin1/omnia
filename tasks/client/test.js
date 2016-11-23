@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import coveralls from 'gulp-coveralls';
 import { Server as Karma } from 'karma';
-import { tasks } from './const';
+import { tasks } from '../const';
 
 gulp.task(tasks.CLIENT_UNIT_TEST, (done) => {
     const _karma = new Karma({

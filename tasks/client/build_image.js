@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import imageMin from 'gulp-imagemin';
-import { path, tasks } from './const';
+import { path, tasks } from '../const';
 
 const IMAGES = path.DIST + '**/*.{png,jpg,jpeg,svg,gif}';
 

@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import uglify from 'gulp-uglify';
-import { path, tasks } from './const';
+import { path, tasks } from '../const';
 
 const JS = path.ROOT + 'dist' + '**/*.js';
 

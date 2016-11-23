@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import htmlmin from 'gulp-htmlmin';
 import rev from 'gulp-rev-append';
-import { path, tasks } from './const';
+import { path, tasks } from '../const';
 
 const VIEWS = path.DIST + '**/*.html';
 

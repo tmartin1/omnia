@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import tsc from 'gulp-typescript';
-import { path, tasks } from './const';
+import { path, tasks } from '../const';
 
 const TS_CONFIG = path.ROOT + 'tsconfig.json';
 
@@ -10,5 +10,5 @@ gulp.task(tasks.CLIENT_BUILD_TS, () => {
     return _tsProject.src()
     .pipe(_tsProject())
     .js
-    .pipe(gulp.dest(path.ROOT + 'dist'));
+    .pipe(gulp.dest('.'));
 });

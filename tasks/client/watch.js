@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import browserSync from 'browser-sync';
-import { path, tasks } from './const';
+import { path, tasks } from '../const';
 
 const TS = path.DEV + '**/*.ts';
 const CSS = path.DEV + '**/*.css';
